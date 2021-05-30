@@ -3,19 +3,17 @@ import java.util.Objects;
 
 public class DataDB {
 
-    // parameters	
+        // parameters	
 	
 	private ArrayList<Data> dataDB ;
 	
-	/**
-	 * Constructor
-	 */
+	
+	// Constructor
 	
 	public DataDB () {
 		this.dataDB = new ArrayList<>();
 	}
-	
-	
+
 	
 	// Methods and functions
 	
