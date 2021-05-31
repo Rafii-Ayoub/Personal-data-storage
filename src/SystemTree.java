@@ -1,9 +1,14 @@
+
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.stream.Collectors;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 public class SystemTree {
 	
@@ -46,7 +51,11 @@ public class SystemTree {
 			  remaining_size = memory_size2 - data_size;
 			  if (remaining_size>0) {
 				  sysNode2.addData(data);
+
 				  sysNode2.setMemory_size(remaining_size);
+
+          sysNode2.setMemory_size(remaining_size);
+
 			  }
 		  }
 		  
@@ -65,6 +74,7 @@ public class SystemTree {
 		  storeData(data,user);
 	  }
   }
+
 	
    public SystemConnexion getSystemArc(SystemNode sysNode) {
 	   SystemConnexion result =null;
@@ -73,12 +83,17 @@ public class SystemTree {
 		   SystemNode firstNode = sysCnx.getFirstNode();
 		 if(sysNode.equals(firstNode) || sysNode.equals(sysCnx.getTheOtherNode(firstNode)) ) {
 			  result=sysCnx;
+
 			  break;
+
+			 
+
 		   }
 	   }
 	  return result; 	   
    }
    
+
    public boolean userInterested(Data data, User user) {
 	   boolean result = false ;
 	   ArrayList<Data> dataList = user.getList();
@@ -92,12 +107,13 @@ public class SystemTree {
 	   }
 	   return result;
    }
-   
+
    
    // Methods to add and remove System Connexion objects an
    
    public void addSystemConnexion(SystemConnexion cnx) {
    	
+
   	 systemArcsList.add(cnx);
   }
   
@@ -105,17 +121,22 @@ public class SystemTree {
 public void removeSystemConnexion(SystemConnexion cnx) {
   	
   	 systemArcsList.remove(cnx);
+
   }
-	
+
 	
    public void addSystemUserArc(User_System cnx) {
 	
+
 	     userArcsList.add(cnx);
+
+
   }
 
    public void removeSystemUserArc(User_System cnx) {
 	
-     	userArcsList.remove( cnx);
+     userArcsList.remove( cnx);
+     
   }
    
     // setters ad getters
@@ -147,10 +168,10 @@ public void removeSystemConnexion(SystemConnexion cnx) {
 
 
 
-
 	// getters and setters
     
  
+
 	
 	public int getId_tree() {
 		return id_tree;
@@ -168,5 +189,4 @@ public void removeSystemConnexion(SystemConnexion cnx) {
 		return systemArcsList;
 	}
 	
-	
-}
+
