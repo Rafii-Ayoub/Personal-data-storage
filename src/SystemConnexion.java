@@ -17,6 +17,18 @@ public class SystemConnexion {
 	    return list ;
 	    
 	}
+	
+	public SystemNode getTheOtherNode(SystemNode sys) {
+		SystemNode sysNode = null;
+		if(sys.equals(this.sysNode1)) {
+			sysNode = this.sysNode2 ;
+		}
+		else if(sys.equals(this.sysNode2)) {
+			sysNode = this.sysNode1 ;
+		}
+		
+		return sysNode;
+	}
 
 	public SystemNode getFirstNode() {
 		return sysNode1;
@@ -33,6 +45,7 @@ public class SystemConnexion {
 	public void setSecondNode(SystemNode sysNode2) {
 		this.sysNode2 = sysNode2;
 	}
+	 
 	
 	
 
