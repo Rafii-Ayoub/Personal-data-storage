@@ -1,13 +1,11 @@
-
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class SystemTree {
@@ -51,11 +49,7 @@ public class SystemTree {
 			  remaining_size = memory_size2 - data_size;
 			  if (remaining_size>0) {
 				  sysNode2.addData(data);
-
 				  sysNode2.setMemory_size(remaining_size);
-
-          sysNode2.setMemory_size(remaining_size);
-
 			  }
 		  }
 		  
@@ -74,8 +68,7 @@ public class SystemTree {
 		  storeData(data,user);
 	  }
   }
-
-	
+   
    public SystemConnexion getSystemArc(SystemNode sysNode) {
 	   SystemConnexion result =null;
 	   for(int i=0 ; i<systemArcsList.size(); i++ ) {
@@ -83,17 +76,62 @@ public class SystemTree {
 		   SystemNode firstNode = sysCnx.getFirstNode();
 		 if(sysNode.equals(firstNode) || sysNode.equals(sysCnx.getTheOtherNode(firstNode)) ) {
 			  result=sysCnx;
-
 			  break;
-
-			 
-
 		   }
 	   }
 	  return result; 	   
    }
    
+   public String shortestPath(User user, SystemNode trajetNode ){
+	   User_System sys_user = getUserArc(user);
+	   SystemNode sysNode = sys_user.getSystemNode();
+	   ArrayList<Path> paths_depths = new ArrayList <>();
+	   Path pathObject = new Path(new ArrayList<>());
+	   int k=0;
+	   while(k<10) {
+		   
+	   
+		   if(pathObject.belongsToList(paths_depths) == true) {
+			   //do nothing
+		   }
+		   
+		   else {
 
+		   ArrayList<SystemNode> pathList = new ArrayList<>();
+		   SystemNode node1 = getSystemArc(sysNode).getTheOtherNode(sysNode);
+		   pathList.add(sysNode);
+		   SystemNode node2=null;
+		   int i=0;	   
+		   while(!(sysNode.equals(node1) )  ) {
+			   pathList.add(node1);
+               if (trajetNode.equals(node2)) {  
+				   break;
+			   }
+               else {
+			   i++;
+			   node2 = getSystemArc(node2).getTheOtherNode(node2);
+			   System.out.println(node1 + String.valueOf(k));}
+		   }
+		   
+		   k++;     
+		   if(i != 0 ) {
+			   pathObject = new Path(pathList);
+			   System.out.println(pathObject.toString());
+			   if(pathObject.belongsToList(paths_depths) == true) {
+				   paths_depths.add(pathObject);  
+			   }
+			  
+		   }    
+		   }
+		   //
+		   
+		      
+	   }
+	   Collections.sort(paths_depths, Path.pathComparator);
+	   return paths_depths.get(0).toString();
+	   
+   }
+   
    public boolean userInterested(Data data, User user) {
 	   boolean result = false ;
 	   ArrayList<Data> dataList = user.getList();
@@ -107,13 +145,12 @@ public class SystemTree {
 	   }
 	   return result;
    }
-
+   
    
    // Methods to add and remove System Connexion objects an
    
    public void addSystemConnexion(SystemConnexion cnx) {
    	
-
   	 systemArcsList.add(cnx);
   }
   
@@ -121,22 +158,17 @@ public class SystemTree {
 public void removeSystemConnexion(SystemConnexion cnx) {
   	
   	 systemArcsList.remove(cnx);
-
   }
-
+	
 	
    public void addSystemUserArc(User_System cnx) {
 	
-
 	     userArcsList.add(cnx);
-
-
   }
 
    public void removeSystemUserArc(User_System cnx) {
 	
-     userArcsList.remove( cnx);
-     
+     	userArcsList.remove( cnx);
   }
    
     // setters ad getters
@@ -155,23 +187,22 @@ public void removeSystemConnexion(SystemConnexion cnx) {
   
   
   public User_System getUserArc(User user) {
+	User_System result = null;
   	for(int i=0; i<userArcsList.size(); i++) {
   		User_System user_system = userArcsList.get(i) ;
   		if (user_system.getUserNode().equals(user) ) {
-  			return user_system;
+  			result= user_system;
   		}
   	}
-  	return null;
+  	return result;
   	   	
   }
 	
 
 
-
 	// getters and setters
     
  
-
 	
 	public int getId_tree() {
 		return id_tree;
@@ -189,4 +220,5 @@ public void removeSystemConnexion(SystemConnexion cnx) {
 		return systemArcsList;
 	}
 	
-
+	
+}
