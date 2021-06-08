@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
+
 public class SystemTree {
 	
 	private ArrayList<SystemConnexion> systemArcsList;
@@ -28,19 +29,28 @@ public class SystemTree {
 
 	// methods and functions
 	
-   
+   /**
+    * Method used to store Data in the the nearest System Node to user Node
+    * @param data
+    * @param user
+    * 
+    */
 	
   public void storeData(Data data,User user) {
+	  
 	  // The first node linked to the user
 	  User_System sys_user = getUserArc(user);
 	  SystemNode sysNode1 = sys_user.getSystemNode();
 	  int data_size = data.getSize();
 	  int memory_size1 = sysNode1.getMemory_size();
+	  
+	  // if the memory Size of the systemNode associated to the user we store the data
 	  if (data_size<memory_size1) { 
 		  sysNode1.addData(data);
 		  int remaining_size = memory_size1 - data_size;
 		  sysNode1.setMemory_size(remaining_size);
 	  }
+	  // If not we store the data to the nearest System Node 
 	  else {
 		  int remaining_size = memory_size1 - data_size;
 		  while (remaining_size<0){
@@ -56,19 +66,26 @@ public class SystemTree {
 	  }
   }
   
+  /**
+   * Method to store all interesting data for a user
+   * @param user
+   */
+  
   public void storeUserData(User user) {
-	  ArrayList<Data> dataList = user.getList();	  
-	  // sort the data List by id
-	  /*java.util.List<Data> sortedData = dataList.stream()
-			  .sorted(Comparator.comparing(Data::getId))
-			  .collect(Collectors.toList());*/
-	  //store the data 
+	  ArrayList<Data> dataList = user.getList();	
+	  
+	  // We store each datum from the data list in the nearest System Nodes
 	  for(int i=0;i<dataList.size() ;i++) {
 		  Data data = dataList.get(i);
 		  storeData(data,user);
 	  }
   }
    
+  /**
+   * Method to get a System Arc 
+   * @param sysNode
+   * @return An arc of two nodes that represents a system connection
+   */
    public SystemConnexion getSystemArc(SystemNode sysNode) {
 	   SystemConnexion result =null;
 	   for(int i=0 ; i<systemArcsList.size(); i++ ) {
@@ -82,6 +99,12 @@ public class SystemTree {
 	  return result; 	   
    }
    
+   /**
+    * Method to get the shortest path to optimize data storing
+    * @param user
+    * @param trajetNode
+    * @return
+    */
    public String shortestPath(User user, SystemNode trajetNode ){
 	   User_System sys_user = getUserArc(user);
 	   SystemNode sysNode = sys_user.getSystemNode();
@@ -132,22 +155,30 @@ public class SystemTree {
 	   
    }
    
+   /**
+    * Method to know if a user is intersseted by a data
+    * @param data
+    * @param user
+    * @return booelean 
+    */
    public boolean userInterested(Data data, User user) {
 	   boolean result = false ;
 	   ArrayList<Data> dataList = user.getList();
+	   
+	   // if there the user is interested by a data result takes the value true
 	   for (int i=0; i<dataList.size(); i++) {
 		   Data element = dataList.get(i);
 		   if (element.equals(data)) {
 			   result = true;
 			   break;
 		   }
-
+  
 	   }
 	   return result;
    }
    
    
-   // Methods to add and remove System Connexion objects an
+   // Methods to add and remove SystemConnexion objects  and SystemUser arcs 
    
    public void addSystemConnexion(SystemConnexion cnx) {
    	
@@ -155,7 +186,7 @@ public class SystemTree {
   }
   
 
-public void removeSystemConnexion(SystemConnexion cnx) {
+  public void removeSystemConnexion(SystemConnexion cnx) {
   	
   	 systemArcsList.remove(cnx);
   }
@@ -172,7 +203,11 @@ public void removeSystemConnexion(SystemConnexion cnx) {
   }
    
     // setters ad getters
-  
+  /**
+   * Method to get the System user arc for a user by using the id
+   * @param userId 
+   * @return SystemArc Object
+   */
   public User_System getUserArc(int userId) {
 	User_System result = null;
   	for(int i=0; i<userArcsList.size(); i++) {
@@ -185,7 +220,11 @@ public void removeSystemConnexion(SystemConnexion cnx) {
   	 return result;  	
   }
   
-  
+  /**
+   * Method to get the System user arc for a user
+   * @param user (User Object)
+   * @return SystemArc Object
+   */
   public User_System getUserArc(User user) {
 	User_System result = null;
   	for(int i=0; i<userArcsList.size(); i++) {
