@@ -3,9 +3,13 @@ import java.util.Comparator;
 
 public class Path {
 	
+	// Attributes
 	private ArrayList<SystemNode> pathList;
 	private int depth ;
 	
+	/**
+         * Constructor
+	 */
 	public Path(ArrayList<SystemNode> list) {
 		super();
 		this.pathList = list;
@@ -14,10 +18,21 @@ public class Path {
 	
 	// methods and functions
 	
+	
+	/**
+	 * Method to add List of SystemNode object to the path list
+	 * @param list
+	 */
+	
 	public void addPathList(ArrayList<SystemNode> list) {
 		pathList.addAll(list);
 	}
 	
+	/**
+	 * Method that returns a boolean to know if a path belongs to a paths list  
+	 * @param pathsList
+	 * @return boolean
+	 */
 	public boolean belongsToList(ArrayList<Path> pathsList) {
 	    boolean result = false;
 	    for(int k=0; k<pathsList.size(); k++) {
@@ -28,15 +43,19 @@ public class Path {
 	    return result;
 	    
 	}
+	/**
+	 * Method to compare the depth of 2 paths
+	 * @return integer 
+	 */
 	
 	public static Comparator<Path> pathComparator = new Comparator<Path>() {
 
 		public int compare(Path p1, Path p2) {
 
-		   int path1 = p1.getDepth();
-		   int path2 = p2.getDepth();
+		   int depth1 = p1.getDepth();
+		   int depth2 = p2.getDepth();
 
-		   return path1-path2;
+		   return depth1-depth2;
 
 		  
 	   }};
@@ -60,9 +79,6 @@ public class Path {
 	public String toString() {
 		return "Path [pathList=" + pathList + ", depth=" + depth + "]";
 	}
-	
-	
-	
 	
 	
 
