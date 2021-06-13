@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class SystemTree {
 	
+	// attributes
 	private ArrayList<SystemConnexion> systemArcsList;
 	private ArrayList<User_System> userArcsList;
 	private int id_tree;
@@ -106,37 +107,54 @@ public class SystemTree {
     * @return
     */
    public String shortestPath(User user, SystemNode trajetNode ){
+	   
 	   User_System sys_user = getUserArc(user);
 	   SystemNode sysNode = sys_user.getSystemNode();
 	   ArrayList<Path> paths_depths = new ArrayList <>();
+	   int maxDepth = 6;
+	   boolean result = false;
+	   // create a path object
 	   Path pathObject = new Path(new ArrayList<>());
-	   int k=0;
-	   while(k<10) {
+       int k=0;
+       
+       // use of Djikstra algorithm
+	   while (!(result)) {
 		   
-	   
+		   
 		   if(pathObject.belongsToList(paths_depths) == true) {
+			   
 			   //do nothing
+			  
 		   }
 		   
 		   else {
-
+			  
+           // create an ArrayList to store the path
 		   ArrayList<SystemNode> pathList = new ArrayList<>();
 		   SystemNode node1 = getSystemArc(sysNode).getTheOtherNode(sysNode);
+		  
 		   pathList.add(sysNode);
+		  
 		   SystemNode node2=null;
 		   int i=0;	   
-		   while(!(sysNode.equals(node1) )  ) {
+		   while(!(sysNode.equals(node1) ) && i<maxDepth ) {
+			   
+			   // if sysNode is not node1 add the node1 to the path list
 			   pathList.add(node1);
-               if (trajetNode.equals(node2)) {  
+               if (trajetNode.equals(node1)) {  
+				   result = true;
 				   break;
+				  
 			   }
                else {
 			   i++;
-			   node2 = getSystemArc(node2).getTheOtherNode(node2);
-			   System.out.println(node1 + String.valueOf(k));}
+			   
+			   node1 = getSystemArc(node1).getTheOtherNode(node1);
+			   System.out.println(node1 );
+			   }
 		   }
 		   
-		   k++;     
+	     
 		   if(i != 0 ) {
 			   pathObject = new Path(pathList);
 			   System.out.println(pathObject.toString());
@@ -156,7 +174,7 @@ public class SystemTree {
    }
    
    /**
-    * Method to know if a user is intersseted by a data
+    * Method to know if a user is intersted by a data
     * @param data
     * @param user
     * @return booelean 
@@ -180,29 +198,24 @@ public class SystemTree {
    
    // Methods to add and remove SystemConnexion objects  and SystemUser arcs 
    
-   public void addSystemConnexion(SystemConnexion cnx) {
-   	
+   public void addSystemConnexion(SystemConnexion cnx) {	
   	 systemArcsList.add(cnx);
   }
   
-
-  public void removeSystemConnexion(SystemConnexion cnx) {
-  	
+  public void removeSystemConnexion(SystemConnexion cnx) {	
   	 systemArcsList.remove(cnx);
   }
 	
-	
-   public void addSystemUserArc(User_System cnx) {
-	
+   public void addSystemUserArc(User_System cnx) {	
 	     userArcsList.add(cnx);
   }
 
    public void removeSystemUserArc(User_System cnx) {
-	
      	userArcsList.remove( cnx);
   }
    
     // setters ad getters
+   
   /**
    * Method to get the System user arc for a user by using the id
    * @param userId 
@@ -231,18 +244,30 @@ public class SystemTree {
   		User_System user_system = userArcsList.get(i) ;
   		if (user_system.getUserNode().equals(user) ) {
   			result= user_system;
+  			break;
   		}
   	}
   	return result;
   	   	
   }
 	
-
+  /**
+   * Method to store all interesting data many users
+   * @param user
+   */
+  
+  public void storeUserData2(User user) {
+	  ArrayList<Data> dataList = user.getList();	
+	  
+	  // We store each datum from the data list in the nearest System Nodes
+	  for(int i=0;i<dataList.size() ;i++) {
+		  Data data = dataList.get(i);
+		  storeData(data,user);
+	  }
+  }
 
 	// getters and setters
     
- 
-	
 	public int getId_tree() {
 		return id_tree;
 	}
