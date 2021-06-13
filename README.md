@@ -1,6 +1,6 @@
 # Personal data storage
 
-![](https://forthebadge.com/images/badges/made-with-java.svg) ![](https://forthebadge.com/images/badges/ctrl-c-ctrl-v.svg)
+![](https://forthebadge.com/images/badges/made-with-java.svg) ![](https://forthebadge.com/images/badges/built-with-love.svg)
 > [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
 Many applications around the world handle “personal data” of varying sizes. A data is said to be personal if it is not accessed only by one user. In order to provide an efficient service, the storage has different system nodes and must place the data on these different nodes.
