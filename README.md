@@ -28,5 +28,5 @@ Note: In such a context, the communication time between two nodes system or a sy
 ## The second step is to to find an efficient placement for the data so that two users can be interested by the same data. We use for this Djikstra Algorithm.
 ![](images/figure2.PNG)
 
-## The third step is to to optimize data storing with using MKP Algorithm.
+## The third step is to to optimize data storing using MKP Algorithm.
 ![](images/figure3.PNG)
