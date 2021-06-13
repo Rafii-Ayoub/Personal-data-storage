@@ -1,5 +1,8 @@
 # Personal data storage
 
+![](https://forthebadge.com/images/badges/made-with-java.svg)
+![](https://forthebadge.com/images/badges/open-source.svg)
+
 Many applications around the world handle “personal data” of varying sizes. A data is said to be personal if it is not accessed only by one user. In order to provide an efficient service, the storage has different system nodes and must place the data on these different nodes.
     
 Each system node can receive one or more data depending on of their size. The storage capacity of such a node is its own and can differ according to the nodes. Moreover, a system node can communicate with all other system nodes and some users.
