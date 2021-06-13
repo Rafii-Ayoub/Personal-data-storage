@@ -1,5 +1,6 @@
 # Personal data storage
 
+![](https://forthebadge.com/images/badges/made-with-java.svg)
 > [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
 Many applications around the world handle “personal data” of varying sizes. A data is said to be personal if it is not accessed only by one user. In order to provide an efficient service, the storage has different system nodes and must place the data on these different nodes.
@@ -9,7 +10,6 @@ Users are interested in a list of data and can only access that data. They can c
 
 Note: In such a context, the communication time between two nodes system or a system node and a user differ according to the users and concerned system nodes. For the sake of simplicity, we will consider that the time communication between two nodes ni, nj is constant, but different from time communication from another couple: neither, nk.
 
-![](https://forthebadge.com/images/badges/made-with-java.svg)
 ## We will model this using data structures: 
   * Nodes. 
   * Arcs.
