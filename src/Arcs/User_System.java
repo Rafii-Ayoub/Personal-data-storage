@@ -1,16 +1,25 @@
-
 import java.util.ArrayList;
 
 public class User_System {
 	
+	// attributes
 	private SystemNode sysNode1;
 	private User user_node;
 	
+	/**
+	 *Constructor
+	 */
 	public User_System( User user_node , SystemNode system_node) {
 		this.sysNode1 = system_node;
 		this.user_node =user_node;
 	}
 	
+	// getters and setters 
+	
+	/**
+	 * Method to get userNode and systemNode in a list
+	 * @return list
+	 */
 	public ArrayList<Object> getNodes() {
 	    ArrayList<Object> list = new ArrayList<>();
 	    list.add(this.getSystemNode());
@@ -36,5 +45,4 @@ public class User_System {
 	}
 	
 	
-
 }
