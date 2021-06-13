@@ -3,11 +3,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Data implements Comparable<Data> {
 	
+	// Attributes
 	private static final AtomicInteger count = new AtomicInteger(1000000000); 
 	private int size;	
 	private String subject;
 	private int id;
   
+	/**
+	 * Constructor
+	 */
 	
 	Data(int size, String subject) {
 
@@ -16,9 +20,14 @@ public class Data implements Comparable<Data> {
 		this.subject = subject;
 	}
 	
+	/**
+	 * method used to compare data object by Id, it's useful in the SystemTree 
+	 */
 	public int compareTo(Data o) {
 	    return Integer.compare(getId(),o.getId());
 	  }
+	
+	// getters and setters 
 	
 	public int getId() {
 		return id;
@@ -32,7 +41,6 @@ public class Data implements Comparable<Data> {
 	public void setSize(int size) {
 		this.size = size;
 	}
-
 
 
 }
