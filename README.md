@@ -13,4 +13,7 @@ Note: In such a context, the communication time between two nodes system or a sy
   * Trees.
 
 ## We used this diagram as an example of our system
-![](images/diagram1.png)
+![](images/diagram1.PNG)
+
+## To start coding I made a UML diagram
+![](images/uml.PNG)
