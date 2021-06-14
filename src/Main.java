@@ -104,9 +104,29 @@ public class Main {
 	    System.out.println("  ");
 	    
 	    
-	    //test4
+	    //test3
 	    System.out.println("  ");
 	    System.out.println("---------------Test3----------------");
+	    System.out.println("The memory size of sysNode5: "+ sysNode5.getMemory_size()+" MB");
+	    System.out.println("The memory size of SysNode4: " + sysNode4.getMemory_size()+" MB");
+	    System.out.println("The memory size of SysNode3: " + sysNode3.getMemory_size()+" MB");
+	    System.out.println("The memory size of SysNode2: " + sysNode2.getMemory_size()+" MB");
+	    System.out.println("The memory size of SysNode1: " + sysNode1.getMemory_size()+" MB");
+	    
+	    //test4
+	    System.out.println("  ");
+	    System.out.println("---------------Test4----------------");
+	    System.out.println("Are user1interseted by data1 ?  " + tree.userInterested(data1, user1));// True
+	    System.out.println("Are user2 interseted by data1 ?  " + tree.userInterested(data1, user2));// True
+	    System.out.println("  ");
+	    
+	    
+	    //test5
+	 
+	    tree.storeUserData2(user3);
+	    tree.storeUserData2(user2);
+	    System.out.println("  ");
+	    System.out.println("---------------Test5----------------");
 	    System.out.println("The memory size of sysNode5: "+ sysNode5.getMemory_size()+" MB");
 	    System.out.println("The memory size of SysNode4: " + sysNode4.getMemory_size()+" MB");
 	    System.out.println("The memory size of SysNode3: " + sysNode3.getMemory_size()+" MB");
