@@ -14,7 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
+import src.Nodes.*;
+import src.Arcs.*;
+import src.System.*;
+import src.*;
 
 /*
 public class GUI extends JFrame {
