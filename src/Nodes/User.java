@@ -103,5 +103,13 @@ public class User {
 		this.password = password;
 		}
 	
+	@Override
+	public String toString() {
+		return "["+ login + "|" + password + "]";
+		}
+		
+	public String toString2() {
+		return "User "+login+" est crée son mp: "+password ; 
+		}
 
 }
