@@ -30,7 +30,7 @@ public class FenetreConnexion extends JFrame {
 	  private String text;
 	  private JTextField textField = new JTextField(20);
 	  private JTextField textField2 = new JTextField(20);
-	  private Concierge cons;
+	  private UsersDB;
 	  
 	  
 	  public FenetreConnexion(UsersDB db){
@@ -38,7 +38,7 @@ public class FenetreConnexion extends JFrame {
 	    this.setSize(300, 300);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setLocationRelativeTo(null); 
-	    this.cons=cons;
+	    this.db=db;
 	    this.setResizable(false);
 
 	    
@@ -78,7 +78,8 @@ public class FenetreConnexion extends JFrame {
 	    
 	    
 	    UsersDB db =this.db;
-      // add an event listener to able a users accessing their accounts
+          
+            // handling events
 	    bouton2.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    		boolean x=false;
