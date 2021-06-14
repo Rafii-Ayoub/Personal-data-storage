@@ -1,3 +1,5 @@
+package src.Nodes;
+
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -5,7 +7,7 @@ public class User {
 	
 	// 	Attributes
 	private int id;
-	private static final AtomicInteger count = new AtomicInteger(10000); 
+	private static final AtomicInteger count = new AtomicInteger(10000); // ensure uniqueness of id
 	private ArrayList<Data> data_list ;
 	private SystemNode system_node ;
 	
@@ -14,7 +16,7 @@ public class User {
 	 */
 	public User( SystemNode system_node) {
 		super();
-		this.id = count.incrementAndGet();
+		this.id = count.incrementAndGet(); // ensure uniqueness of auto incremented id
 		this.data_list = new ArrayList<>();
 		this.system_node = system_node;
 	
