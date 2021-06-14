@@ -70,6 +70,41 @@ public class SystemTree {
 	  }
   }
   
+	  /**
+    * Method used to store Data in the the nearest System Node 
+    * @param data
+    * @param user
+    * 
+    */
+	
+  public void storeData2(Data data,SystemNode sysNode1) {
+	  
+
+	  int data_size = data.getSize();
+	  int memory_size1 = sysNode1.getMemory_size();
+	  
+	  // if the memory Size of the systemNode associated to the user we store the data
+	  if (data_size<memory_size1) { 
+		  sysNode1.addData(data);
+		  int remaining_size = memory_size1 - data_size;
+		  sysNode1.setMemory_size(remaining_size);
+	  }
+	  // If not we store the data to the nearest System Node 
+	  else {
+		  int remaining_size = memory_size1 - data_size;
+		  while (remaining_size<0){
+			  SystemNode sysNode2 =getSystemArc(sysNode1).getTheOtherNode(sysNode1);
+			  int memory_size2 = sysNode2.getMemory_size();
+			  remaining_size = memory_size2 - data_size;
+			  if (remaining_size>0) {
+				  sysNode2.addData(data);
+				  sysNode2.setMemory_size(remaining_size);
+			  }
+		  }
+		  
+	  }
+  }
+	
   /**
    * Method to store all interesting data for a user
    * @param user
@@ -85,6 +120,34 @@ public class SystemTree {
 	  }
   }
    
+   /**
+   * Method to store all interesting data for many users
+   * @param user
+   */
+  
+  public void storeUserData2(ArrayList<User> users) {
+	 for (User user1 : users){
+	     ArrayList<Data> dataList = user1.getList();		  
+	     // We store each datum from the data list in the nearest System Nodes
+	     for(int i=0;i<dataList.size() ;i++) {
+		  Data data = dataList.get(i);
+		  for (User user2 : users){
+		     if ( userIntersted(data,user2) && !(user1.equals(node2))){
+			     Path path shortestPath( user1, user2.getSystemNode());
+			     int ideal = (int) path.size();
+		 	     SystemNode sysNode = path.getPathList().get(i);
+			     user2.removeData(Data);
+			     storeData2(data,sysNode);
+		     }
+		     else {
+		     storeData(data,user1)
+		     }
+			     
+		  }
+	       }
+         }	 
+  }
+	
   /**
    * Method to get a System Arc 
    * @param sysNode
@@ -123,6 +186,8 @@ public class SystemTree {
 	   }
 	   return result;
    }
+	
+
 	  /**
     * Method to get the shortest path to optimize data storing using MKP algorithm
     * @param SystemNode
@@ -266,20 +331,7 @@ public class SystemTree {
   	   	
   }
 	
-  /**
-   * Method to store all interesting data many users
-   * @param user
-   */
-  
-  public void storeUserData2(ArrayList<User> users) {
-	  ArrayList<Data> dataList = user.getList();	
-	  
-	  // We store each datum from the data list in the nearest System Nodes
-	  for(int i=0;i<dataList.size() ;i++) {
-		  Data data = dataList.get(i);
-		  storeData(data,user);
-	  }
-  }
+
 
 	// getters and setters
     
