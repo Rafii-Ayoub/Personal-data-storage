@@ -1,3 +1,4 @@
+package src.Nodes;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -8,7 +9,7 @@ public class SystemNode extends Node  {
 	// Attributes
 	
 	private int id;
-	private static final AtomicInteger count = new AtomicInteger(1000000); 
+	private static final AtomicInteger count = new AtomicInteger(1000000); // to ensure  uniqueness of id
 	private int memory_size;	
 	private ArrayList<Data> data_list ;
 	private ArrayList<Integer> accessible_nodes;
@@ -18,7 +19,7 @@ public class SystemNode extends Node  {
 	 */
 	public SystemNode( int memory_size) {
 		super();
-		this.id = count.incrementAndGet();
+		this.id = count.incrementAndGet(); // to ensure  uniqueness of the auto incremented id
 		this.memory_size = memory_size;
 		this.data_list = new ArrayList<>();
 		this.accessible_nodes = new ArrayList<Integer>();
