@@ -15,7 +15,6 @@ Note: In such a context, the communication time between two nodes system or a sy
 1. Modeling the problem
 2. Installation
 3. Steps of coding
-4. results
 
 ## Modeling the problem
 #### We will model this using data structures: 
