@@ -1,3 +1,5 @@
+package src.Nodes;
+
 public class Node {
 	//Attributs
 	private int id;
