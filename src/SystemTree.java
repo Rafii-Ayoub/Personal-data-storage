@@ -102,14 +102,47 @@ public class SystemTree {
 	   }
 	  return result; 	   
    }
-   
+     /**
+    * Method to know if a user is intersted by a data
+    * @param data
+    * @param user
+    * @return booelean 
+    */
+   public boolean userInterested(Data data, User user) {
+	   boolean result = false ;
+	   ArrayList<Data> dataList = user.getList();
+	   
+	   // if there the user is interested by a data result takes the value true
+	   for (int i=0; i<dataList.size(); i++) {
+		   Data element = dataList.get(i);
+		   if (element.equals(data)) {
+			   result = true;
+			   break;
+		   }
+  
+	   }
+	   return result;
+   }
+	  /**
+    * Method to get the shortest path to optimize data storing using MKP algorithm
+    * @param SystemNode
+    * @param trajetNode
+    * @return Path
+    */
+	
+	public void MKPalgorithm(SystemNode sys, SystemNode trajetNode){
+		
+		System.out.println("In progress")
+	}
+
+	
    /**
     * Method to get the shortest path to optimize data storing
     * @param user
     * @param trajetNode
-    * @return
+    * @return Path ( shortest path) 
     */
-   public String shortestPath(User user, SystemNode trajetNode ){
+   public Path shortestPath(User user, SystemNode trajetNode ){
 	   
 	   User_System sys_user = getUserArc(user);
 	   SystemNode sysNode = sys_user.getSystemNode();
@@ -118,9 +151,9 @@ public class SystemTree {
 	   boolean result = false;
 	   // create a path object
 	   Path pathObject = new Path(new ArrayList<>());
-       int k=0;
+           int k=0;
        
-       // use of Djikstra algorithm
+      
 	   while (!(result)) {
 		   
 		   
@@ -153,7 +186,7 @@ public class SystemTree {
 			   i++;
 			   
 			   node1 = getSystemArc(node1).getTheOtherNode(node1);
-			   System.out.println(node1 );
+			 
 			   }
 		   }
 		   
@@ -172,32 +205,11 @@ public class SystemTree {
 		      
 	   }
 	   Collections.sort(paths_depths, Path.pathComparator);
-	   return paths_depths.get(0).toString();
+	   return paths_depths;
 	   
    }
    
-   /**
-    * Method to know if a user is intersted by a data
-    * @param data
-    * @param user
-    * @return booelean 
-    */
-   public boolean userInterested(Data data, User user) {
-	   boolean result = false ;
-	   ArrayList<Data> dataList = user.getList();
-	   
-	   // if there the user is interested by a data result takes the value true
-	   for (int i=0; i<dataList.size(); i++) {
-		   Data element = dataList.get(i);
-		   if (element.equals(data)) {
-			   result = true;
-			   break;
-		   }
-  
-	   }
-	   return result;
-   }
-   
+	
    
    // Methods to add and remove SystemConnexion objects  and SystemUser arcs 
    
@@ -259,7 +271,7 @@ public class SystemTree {
    * @param user
    */
   
-  public void storeUserData2(User user) {
+  public void storeUserData2(ArrayList<User> users) {
 	  ArrayList<Data> dataList = user.getList();	
 	  
 	  // We store each datum from the data list in the nearest System Nodes
