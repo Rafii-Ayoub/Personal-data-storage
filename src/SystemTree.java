@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import src.Nodes.*;
+import src.Arcs.*;
+import src.System.*;
 
 
 public class SystemTree {
