@@ -20,7 +20,7 @@ import src.DBs.*;
 
 
 
-public class Messagerie extends JFrame implements PapotageListener,ActionListener{
+public class Messagerie extends JFrame implements ActionListener{
 	private JPanel pan = new JPanel();
 	
 	private JButton bouton = new JButton("Save Data");
@@ -47,7 +47,7 @@ public class Messagerie extends JFrame implements PapotageListener,ActionListene
 		this.A=B;
 		this.cons=cons;
 		
-		this.setTitle("Bonjour "+A.getLogin());
+		this.setTitle("Bonjour "+ A.getLogin());
 		this.setSize(350,700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null); 
@@ -134,7 +134,7 @@ public class Messagerie extends JFrame implements PapotageListener,ActionListene
 		
 		}
 		
-    // In pregress
+    // In progress
 		
   }
 	
