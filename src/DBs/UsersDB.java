@@ -45,7 +45,7 @@ public class UsersDB {
 	 * This methods return a user from UserDB that has the same (id,password) 
 	 * @param id
 	 * @param password
-	 * @return Concierge 
+	 * @return user 
 	 */
 	
 	public User getUserAuthentification(String id, String password) {
