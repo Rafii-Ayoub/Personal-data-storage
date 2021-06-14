@@ -270,7 +270,7 @@ public class SystemTree {
 		      
 	   }
 	   Collections.sort(paths_depths, Path.pathComparator);
-	   return paths_depths;
+	   return paths_depths.get(0);
 	   
    }
    
