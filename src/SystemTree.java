@@ -7,9 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import src.Nodes.*;
-import src.Arcs.*;
-import src.System.*;
 
 
 public class SystemTree {
@@ -70,14 +67,16 @@ public class SystemTree {
 	  }
   }
   
-	  /**
-    * Method used to store Data in the the nearest System Node 
-    * @param data
-    * @param user
-    * 
-    */
+
+  
+  /**
+   * Method used to store Data in the the nearest System Node 
+   * @param data
+   * @param user
+   * 
+   */
 	
-  public void storeData2(Data data,SystemNode sysNode1) {
+ public void storeData2(Data data,SystemNode sysNode1) {
 	  
 
 	  int data_size = data.getSize();
@@ -103,8 +102,8 @@ public class SystemTree {
 		  }
 		  
 	  }
-  }
-	
+ }
+  
   /**
    * Method to store all interesting data for a user
    * @param user
@@ -119,35 +118,33 @@ public class SystemTree {
 		  storeData(data,user);
 	  }
   }
-   
-   /**
-   * Method to store all interesting data for many users
-   * @param user
-   */
   
+  /**
+   * Method to store all interesting data for many users
+   * @param userList
+   */
   public void storeUserData2(ArrayList<User> users) {
-	 for (User user1 : users){
-	     ArrayList<Data> dataList = user1.getList();		  
-	     // We store each datum from the data list in the nearest System Nodes
-	     for(int i=0;i<dataList.size() ;i++) {
-		  Data data = dataList.get(i);
-		  for (User user2 : users){
-		     if ( userIntersted(data,user2) && !(user1.equals(node2))){
-			     Path path shortestPath( user1, user2.getSystemNode());
-			     int ideal = (int) path.size();
-		 	     SystemNode sysNode = path.getPathList().get(i);
-			     user2.removeData(Data);
-			     storeData2(data,sysNode);
-		     }
-		     else {
-		     storeData(data,user1)
-		     }
-			     
-		  }
-	       }
-         }	 
-  }
-	
+		 for (User user1 : users){
+		     ArrayList<Data> dataList = user1.getList();		  
+		     // We store each datum from the data list in the nearest System Nodes
+		     for(int i=0;i<dataList.size() ;i++) {
+			  Data data = dataList.get(i);
+			  for (User user2 : users){
+			     if ( userInterested(data,user2) && !(user1.equals(user2))){
+				     Path path = shortestPath ( user1, user2.getSystem_node());
+				     int ideal = (int) path.size();
+			 	     SystemNode sysNode = path.getPathList().get(ideal);
+				     user2.removeData(data);
+				     storeData2(data,sysNode);
+			     }
+			     else {
+			     storeData(data,user1);
+			     }
+				     
+			  }
+		       }
+	         }	 
+	  }
   /**
    * Method to get a System Arc 
    * @param sysNode
@@ -165,12 +162,14 @@ public class SystemTree {
 	   }
 	  return result; 	   
    }
-     /**
+   
+   /**
     * Method to know if a user is intersted by a data
     * @param data
     * @param user
     * @return booelean 
     */
+  
    public boolean userInterested(Data data, User user) {
 	   boolean result = false ;
 	   ArrayList<Data> dataList = user.getList();
@@ -186,26 +185,13 @@ public class SystemTree {
 	   }
 	   return result;
    }
-	
-
-	  /**
-    * Method to get the shortest path to optimize data storing using MKP algorithm
-    * @param SystemNode
-    * @param trajetNode
-    * @return Path
-    */
-	
-	public void MKPalgorithm(SystemNode sys, SystemNode trajetNode){
-		
-		System.out.println("In progress")
-	}
-
-	
+   
+   
    /**
     * Method to get the shortest path to optimize data storing
     * @param user
     * @param trajetNode
-    * @return Path ( shortest path) 
+    * @return ArrayList<Path> 
     */
    public Path shortestPath(User user, SystemNode trajetNode ){
 	   
@@ -213,13 +199,14 @@ public class SystemTree {
 	   SystemNode sysNode = sys_user.getSystemNode();
 	   ArrayList<Path> paths_depths = new ArrayList <>();
 	   int maxDepth = 6;
-	   boolean result = false;
+	   boolean find = false;
+	   
 	   // create a path object
 	   Path pathObject = new Path(new ArrayList<>());
-           int k=0;
+       int k=0;
        
-      
-	   while (!(result)) {
+       // use of Djikstra algorithm
+	   while (!(find)) {
 		   
 		   
 		   if(pathObject.belongsToList(paths_depths) == true) {
@@ -243,7 +230,7 @@ public class SystemTree {
 			   // if sysNode is not node1 add the node1 to the path list
 			   pathList.add(node1);
                if (trajetNode.equals(node1)) {  
-				   result = true;
+				   find = true;
 				   break;
 				  
 			   }
@@ -251,7 +238,7 @@ public class SystemTree {
 			   i++;
 			   
 			   node1 = getSystemArc(node1).getTheOtherNode(node1);
-			 
+			   System.out.println(node1 );
 			   }
 		   }
 		   
@@ -274,7 +261,7 @@ public class SystemTree {
 	   
    }
    
-	
+  
    
    // Methods to add and remove SystemConnexion objects  and SystemUser arcs 
    
