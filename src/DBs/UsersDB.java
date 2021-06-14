@@ -55,7 +55,7 @@ public class UsersDB {
 		    String loginl = user2.getLogin();
 		    String passwordl = user2.getPassword();
 			if (  loginl.equals(id) && passwordl.equals(password) ) {
-			       user_to_return = bavard2;  
+			       user_to_return = user2;  
 				break;  }
 			
 				}
