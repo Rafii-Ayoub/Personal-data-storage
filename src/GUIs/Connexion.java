@@ -33,7 +33,7 @@ public class FenetreConnexion extends JFrame {
 	  private Concierge cons;
 	  
 	  
-	  public FenetreConnexion(UserDB db){
+	  public FenetreConnexion(UsersDB db){
 	    this.setTitle("La fenetre de connexion");
 	    this.setSize(300, 300);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
