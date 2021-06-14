@@ -39,11 +39,11 @@ $ git clone https://github.com/Rafii-Ayoub/Personal-data-storage
 
 ## Steps of coding
 
-#### The first step is to to find an efficient placement for the data of the system: each data must be placed as close as possible to the user interested in this data.
+#### 1. The first step is to to find an efficient placement for the data of the system: each data must be placed as close as possible to the user interested in this data.
 ![](images/figure1.PNG)
 
-#### The second step is to to find an efficient placement for the data so that two users can be interested by the same data. We use for this Djikstra Algorithm.
+#### 2. The second step is to to find an efficient placement for the data so that two users can be interested by the same data. We use for this Djikstra Algorithm.
 ![](images/figure2.PNG)
 
-#### The third step is to to optimize data storing using MKP Algorithm.
+#### 3. The third step is to to optimize data storing using MKP Algorithm.
 ![](images/figure3.PNG)
