@@ -103,16 +103,10 @@ public class Main {
 	    System.out.println("Are user1 interseted by data1 ?  " + tree.userInterested(data1, user1));// True
 	    System.out.println("  ");
 	    
-	    //test 3
-	    System.out.println("  ");
-	    System.out.println("---------------Test3---------------");
-	    
-	    System.out.println(  );
-	    System.out.println("  ");
 	    
 	    //test4
 	    System.out.println("  ");
-	    System.out.println("---------------Test4----------------");
+	    System.out.println("---------------Test3----------------");
 	    System.out.println("The memory size of sysNode5: "+ sysNode5.getMemory_size()+" MB");
 	    System.out.println("The memory size of SysNode4: " + sysNode4.getMemory_size()+" MB");
 	    System.out.println("The memory size of SysNode3: " + sysNode3.getMemory_size()+" MB");
