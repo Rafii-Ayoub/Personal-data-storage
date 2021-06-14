@@ -17,28 +17,27 @@ Note: In such a context, the communication time between two nodes system or a sy
 3 Steps of coding
 4 results
 
-# Modeling the problem
-### We will model this using data structures: 
+## Modeling the problem
+#### We will model this using data structures: 
   * Nodes. 
   * Arcs.
   * Trees.
 
-### We used this diagram as an example of our system
+#### We used this diagram as an example of our system
 ![](images/diagram1.PNG)
 
-### To start coding I made a UML diagram
+#### To start coding I made a UML diagram
 ![](images/uml1.PNG)
 
-# Installation 
+## Installation 
 
-***
-A little intro about the installation. 
+
 ```
 $ git clone https://github.com/Rafii-Ayoub/Personal-data-storage
 
 ```
 
-# Steps of coding
+## Steps of coding
 
 ### The first step is to to find an efficient placement for the data of the system: each data must be placed as close as possible to the user interested in this data.
 ![](images/figure1.PNG)
