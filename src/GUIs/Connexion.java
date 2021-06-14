@@ -86,7 +86,7 @@ public class FenetreConnexion extends JFrame {
 				  String password =textField2.getText();
 				  boolean authentification = db.authentification ( login,  password) ;
 				  if (authentification== true) {
-				     	User connected_user =  cons1.getUserAuthentification(login,  password);
+				     	User connected_user =  db.getUserAuthentification(login,  password);
 				    	label.setText("Connexion Reussi ");
 					    UserInterface gui = new UserInterface(connected_user,db);
 					  
