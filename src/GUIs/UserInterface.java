@@ -13,14 +13,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-
+import src.Nodes.*;
+import src.DBs.*;
 
 
 
 public class Messagerie extends JFrame implements PapotageListener,ActionListener{
 	private JPanel pan = new JPanel();
 	
-	private JButton bouton = new JButton("Save Data);
+	private JButton bouton = new JButton("Save Data");
 	private JButton bouton1 = new JButton("Log out");
 	
 	private JLabel label = new JLabel();
