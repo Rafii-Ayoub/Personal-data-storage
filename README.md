@@ -12,10 +12,10 @@ Note: In such a context, the communication time between two nodes system or a sy
 
 > [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 # Table of content: 
-1 Modeling the problem
-2 Installation
-3 Steps of coding
-4 results
+1. Modeling the problem
+2. Installation
+3. Steps of coding
+4. results
 
 ## Modeling the problem
 #### We will model this using data structures: 
