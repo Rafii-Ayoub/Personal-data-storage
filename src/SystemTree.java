@@ -251,11 +251,10 @@ public class SystemTree {
 			   }
 			  
 		   }    
-		   }
-		   //
-		   
+		   }   
 		      
 	   }
+	   // Sort the list
 	   Collections.sort(paths_depths, Path.pathComparator);
 	   return paths_depths.get(0);
 	   
