@@ -205,7 +205,7 @@ public class SystemTree {
 	   Path pathObject = new Path(new ArrayList<>());
        int k=0;
        
-       // use of Djikstra algorithm
+       
 	   while (!(find)) {
 		   
 		   
